@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Roboto&family=Splash&display=swap');
+/** {
+  font-size: xx-large;
+  color: blueviolet;
+}
+label{
+  color: crimson;
+}
+
+h2 {
+  color: darkblue;
+}
+
+p {
+  font-style: italic;
+  color: aquamarine;
+}*/
+
+/*
+.lista-albumes {
+  color: chocolate;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 25px;
+}
+
+ul, p {
+  font-size: 10px;
+  color: crimson;
+}*/
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  font-family: 'Inconsolata', sans-serif;
+}
+
+.lista-albumes {
+  font-family: fantasy;
+  color: green;
+  font-size: 25px;
+}
+
+/* Cuando tiene un # se refiere a IDs. */
+#discos-title {
+  color: cadetblue;
+  font-style: italic;
+}
+
+img {
+  width:300px;
+  border-width: 5px;
+  border-color: magenta;
+  border-style: double dashed ridge solid;
+  border-radius: 80px;  /* Borde redondeado */
+  margin: 50px;
+  padding: 5px;
+  background-color: pink;
+}
+
+div {
+  background-color: aquamarine;
+  padding: 30px;  /* Distancia en pixeles entre el borde del elemento div y su contenido */
+  margin: 100px;  /*  Distancia entre el contenedor interno con el externo */
+}
+
+.contenedor-master {
+  background-color: blueviolet;
+  padding-top: 5px;
+  padding-right: 65px;
+  padding-bottom: 100px;
+  padding-left: 50px;
+  /*padding: 5px 65px 100p 50px;   Otra forma de hacer el padding por lado (sentido de las agujas del reloj) */
+}
+
