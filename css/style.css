@@ -35,19 +35,38 @@ ul, p {
 }*/
 body {
   font-family: 'Roboto', sans-serif;
+  background-color: rgba(153, 170, 114, 0.7); /* Con rgba se define transparencia, en este caso es en un 70% */ 
+  /*background-color: rgb(153, 170, 114);*/
 }
+
+/* Prioridad del estilo es el último valor asignado en este archivo 
+  Prioridad entre dos clases, se toma la última del archivo
+  Prioridad entre una clase y el tag completo, se prioriza la clase
+  Prioridad entre el ID y la clase, se prioriza el ID
+  Estilo en línea (style="color: red;") es el que tiene la máxima prioridad
+  Colocando !important maximiza sin falta la prioridad, por encima del estilo en línea */
+
+.purple-text {
+  color: purple !important;
+}
+
+.blue-text {
+  color: #25248f;
+}
+
 
 a {
   font-family: 'Inconsolata', sans-serif;
 }
 
+/* Cuando tiene un . se refiere a clases (class="lista-albumes") */
 .lista-albumes {
   font-family: fantasy;
   color: green;
   font-size: 25px;
 }
 
-/* Cuando tiene un # se refiere a IDs. */
+/* Cuando tiene un # se refiere a IDs. (id="discos-title") */
 #discos-title {
   color: cadetblue;
   font-style: italic;
@@ -79,3 +98,52 @@ div {
   /*padding: 5px 65px 100p 50px;   Otra forma de hacer el padding por lado (sentido de las agujas del reloj) */
 }
 
+/*selector de atributo*/
+img[alt] {  /* Todos los tags que tienen asignado un atributo alt */
+  border-color: black;
+
+}
+
+[type="radio"] {  /* Sirve también input[type="radio"] si se especifica únicamente a los input */
+  margin: 15px;
+}
+
+a[href="#ride"] { /* Todos los links (tag <a>) que redirecciones la página #ride */
+  color: green;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a[href="#kill"] { /* Todos los links (tag <a>) que redirecciones la página #ride */
+  text-decoration: purple wavy underline;
+}
+
+
+#main-container {
+  color: aliceblue;
+  background-color: yellow;
+  margin: 0px;
+  padding: 0px;
+  font-size: 11px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.rectangulo {
+  padding: 5px;
+  margin: 5px;
+}
+
+.px {
+  background-color: crimson;
+  width: 200px;
+}
+
+.vw {
+  background-color: darkmagenta;
+  width: 20vw;
+}
+
+.em {
+  background-color: green;
+  width: 15em;
+}
