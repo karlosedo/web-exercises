@@ -1,0 +1,308 @@
+<script>
+    var miPerro = { //Esto es un objeto "miPerro"
+        nombre: "Locky", //No importa que el nombre de la propiedad no tenga comillas
+        "Edad": 10,
+        Raza: "Beagle",
+        "tamano perro": "mediano",
+        pelaje: {
+            "cabeza": "cafe",
+            "cuerpo": "negro",
+            "cola": "blanco"
+        }
+    };
+
+    var coleccionDeDiscos = {
+        7853: {
+            tituloDelAlbum: "Bee Gees Greatest",
+            artista: "Bee Gees",
+            canciones: ["Staying Alive", "Satuday Night Friday"]
+        },
+        5439: {
+            tituloDelAlbum: "Abba Gold"
+        }
+    };
+
+    var contactos = [
+        {
+            "nombre": "Nora",
+            "apellido": "Nav",
+            "numero": "0543236543",
+            "gustos": ["Pizza", "Programación"]
+        },
+        {
+            "nombre": "Harry",
+            "apellido": "Potter",
+            "numero": "0994372684",
+            "gustos": ["Hogwarts", "Magia"]
+        },
+        {
+            "nombre": "Sherlock",
+            "apellido": "Holmes",
+            "numero": "0487345643",
+            "gustos": ["Casos interesantes", "Violín"]
+        }
+    ];
+
+    main();
+
+    function buscarPerfil(nombre, propiedad) {
+        for (let i=0; i<contactos.length; i++) { // Al usar let, la variable i no se puede acceder una vez es finalizado el for
+            if (contactos[i].nombre === nombre) {
+                return contactos[i][propiedad] || "La propiedad no existe";
+            }
+        }
+        return "El contacto \""+nombre+"\" no está en la lista";
+    }
+
+    function sumar(a,b) {
+        console.log("Vamos a sumar "+a+" + "+b);
+        return (a+b);
+    }
+    function restar(a,b) {
+        console.log("Vamos a restar "+a+" - "+b);
+        return (a-b);
+    }
+    function multiplicar(a,b) {
+        console.log("Vamos a multiplicar "+a+" * "+b);
+        return (a*b);
+    }
+    function dividir(a,b) {
+        console.log("Vamos a dividir "+a+" / "+b);
+        return (a/b);
+    }
+
+    function getRandomNumber() {
+        /* Al usar let, la definición es estricta para el bloque de código de la función */
+        let randomEnteroEntre0y19 = Math.floor(Math.random()*20); 
+        console.log(randomEnteroEntre0y19);
+        return randomEscencial = Math.random(); // El resultado va a ser  0 <= x < 1
+    }
+
+    function getRandomNumberLimits(limiteInferior, limiteSuperior) {
+        return Math.floor(Math.random() * (limiteSuperior-limiteInferior+1))+limiteInferior;
+    }
+
+    
+
+    function main() {
+        var hola_mundo = "HOLA MUNDO! Entre a la función main(); !!!"
+        var a;
+        console.log(hola_mundo);
+        //alert(hola_mundo);
+        var b = "Letra b";
+        a=b;
+        console.log(a);
+        a = 37;
+        b = 12;
+        console.log((a+b+2)+" "+(a-b)+" "+(a*b)+" "+(a/b)+" "+(a%b));
+        b++;
+        console.log((a+b+2)+" "+(a-b)+" "+(a*b)+" "+(a/b)+" "+(a%b));
+        var cadena = "Hola a todos";
+        console.log("La cadena denominada \""+cadena+"\" contiene "+cadena.length+" caracteres "+cadena[0]);
+        console.log(cadena[cadena.length-1]);
+        var arreglo = ["uno", "dos", "tres", "cuatro"];
+        console.log("Arreglo: "+arreglo)
+        console.log(arreglo);
+        arreglo.push("cinco"); // Método push agrega un elemento al final del arreglo.
+        console.log(arreglo);
+        var removido = arreglo.pop(); // Método pop remueve el último valor del arreglo y lo devuelve.
+        console.log(arreglo)
+        console.log(removido);
+        removido = arreglo.shift()  // Método shift remueve el primer valor del arreglo y lo devuelve
+        console.log(arreglo)
+        console.log(removido);
+        arreglo.unshift("1") // Método unshift agrega un elemento al inicio del arreglo
+        console.log(arreglo);
+        console.log(sumar(a,b));
+        console.log(restar(a,b));
+        console.log(multiplicar(a,b));
+        console.log(dividir(a,b));
+        var operacion = dividir((sumar(a,restar(a,b))),restar(dividir(b,a),b));
+        console.log("Operación loca: "+operacion);
+        var miArreglo = [1,2,3,4];
+        console.log(JSON.stringify(miArreglo));  // Método JSON.stringify permite ver los arreglos de manera elegante en la consola
+        console.log(proximoEnLaFila(miArreglo,5));
+        console.log(JSON.stringify(miArreglo));
+        // === y !== es comparador esctricto, incluso tipo de dato
+        console.log((5==5)+" - "+ ('JavaScript' == "Javascript")+ 
+                " - "+(1=="1")+" - "+(1==="1") + " - "+(1!="1")+" - "+(1!=="1")); 
+        console.log(esPar(1235));
+        console.log(Math.sqrt(5)); // Math es una clase para operaciones matemáticas
+        // Accediendo a objetos
+        console.log("Mi perro se llama "+miPerro.nombre+", tiene "+miPerro.Edad+
+                " años y es un "+miPerro.Raza+" "+miPerro["tamano perro"]);
+        var resultados = {
+            1: "primero",
+            2: "segundo",
+            3: "tercero"
+        }
+        var posicion = 3;
+        console.log(resultados[posicion]); // Una manera para acceder de manera dinámica a las variables del objeto
+        miPerro.Raza = "Beagle hermoso";
+        console.log(miPerro);
+        miPerro.peso = "15 Kg"; // Agrego nueva propiedad al objeto miPerro;
+        console.log(miPerro);
+        delete miPerro.Edad; // Elimino una propiedad al objeto miPerro
+        console.log(JSON.stringify(miPerro) + " Tiene propiedad Edad, raza?: "+miPerro.hasOwnProperty("Edad")+","+miPerro.hasOwnProperty("Raza"));
+        console.log(valorPropiedadMiPerro("Raza"));
+        console.log("Objeto anidado: "+JSON.stringify(miPerro.pelaje)+ " y cola: "+miPerro.pelaje["cola"]);
+
+        //prueba discos
+        console.log(coleccionDeDiscos[7853].tituloDelAlbum);
+        actualizarDiscos(coleccionDeDiscos, 7853, "tituloDelAlbum","");
+        console.log(coleccionDeDiscos[7853].tituloDelAlbum);
+        console.log(coleccionDeDiscos[5439].canciones);
+        actualizarDiscos(coleccionDeDiscos, 5439, "canciones","Mamma Mia");
+        console.log(coleccionDeDiscos[5439].canciones);
+        console.log(buscarPerfil("Harry","gustos"));
+        console.log(buscarPerfil("Sherlock","numero"));
+        console.log(buscarPerfil("Sherlock","asdf"));
+        console.log(buscarPerfil("qwer","asdf"));
+        console.log(getRandomNumber());
+        console.log(getRandomNumber());
+        console.log(getRandomNumberLimits(10,18));
+        console.log(parseInt("-46")+10);
+        console.log(parseInt("101",2)); //Convertir un número decimal
+        console.log(parseInt("101",16)); //Convertir un número hexagesimal
+        console.log("Carlos" === "Carlos" ? "YES" : "NO");
+
+        const MI_CONSTANTE = 35;
+        console.log(MI_CONSTANTE+100);
+        //MI_CONSTANTE = 10; No se puede hacer ya que las constantes son de solo lectura, excepto a los valores de un arreglo
+        console.log(3**2); // Raíz cuadrada
+
+        let colores = {
+            "rojo" : "red",
+            "azul" : "blue",
+            "negro" : "black"
+        };
+        Object.freeze(colores); //Congela todos los valores del objeto "colores", por lo que no se puede cambiar ninguna de sus variables.
+        colores.amarillo = "yellow";
+        console.log(JSON.stringify(colores)); // No se asignó la variable "amarillo" al objeto ya que estaba congelado.
+
+        //Función flecha (anónimas)
+        const fecha = () => new Date();
+        console.log(fecha());
+        const sumarTres = (x) => x+3;
+        console.log(sumarTres(10));
+        const sumarFlecha = (a,b) => {  //Cuando la función tiene más de una línea, se agrupan con {}
+            let num = 6;
+            return a+b+num; 
+        };
+        const incrementar = (num, valor=1) => num+valor;  //Si no se envía argumento "valor", se tomará 1 por defecto
+        console.log(incrementar(10));
+        console.log(incrementar(10,11));
+        console.log(JSON.stringify(restFunction(1,2,3,4)));
+        const numeros = [4,5,1];
+        console.log(spreadFunction(...numeros));
+        
+        //Desestructuración
+        const usuario = {
+            nombre: "Carlos",
+            edad: 39,
+            ropa: {
+                pantalon: "negro",
+                camiseta: "blanca"
+            }
+        }
+        const {nombre, edad,ropa: {pantalon: pants,camiseta}} = usuario;
+        console.log(nombre+" con edad de "+edad+' años, pantalón '+pants+" y camiseta "+camiseta);
+        [a,b,c,...arr] = [1,2,3,4,5,6,7,8,9];
+        console.log(a+" "+b+" "+c);
+        console.log(arr);
+        desestructuracionFlecha();
+        //Plantilla, es tipo Linux script!!
+        console.log(`Esta es una plantilla especial, por ejemplo, el valor de a es ${a}`);
+        console.log(`En plantillas, se pueden meter valores dentro del $: ${JSON.stringify(arr)}`)
+
+        //Creando objeto de manera concisa con función flecha
+        const crearPersona = (nombre,apellido,edad) => ({nombre,apellido,edad});
+        console.log(crearPersona("Carlos","Restrepo",39));
+
+        //Métodos dentro de un objeto
+        const persona = {
+            nombre: "Carlos",
+            //presentarse: function() {  //Opcion larga
+            presentarse() {
+                return `Mi nombre es ${this.nombre}`;
+            }
+        };
+        console.log(persona.presentarse())
+
+         // Clases
+        class Perro {
+            constructor(raza) {
+                this.raza = raza;
+                this._edad = 0;
+            }
+            
+            setEdad(edad) {
+                this.edad = edad
+            }
+
+            getEdad() {
+                return this.edad;
+            }
+        }
+        var myDog = new Perro("Beagle");
+        console.log(myDog.raza);
+        myDog.setEdad(9);
+        console.log(myDog.edad);
+    }
+
+    function proximoEnLaFila(arreglo,numero) {
+        arreglo.push(numero);
+        return arreglo.shift();
+    }
+
+    function esPar(num) {
+        if (num%2 == 0) {
+            return ("El número "+num+" es par");
+        } else {
+            return ("El número "+num+" es impar");
+        }
+    }
+
+    function valorPropiedadMiPerro(prop) {
+        return miPerro[prop]; // Una buena forma de dejar de usar switch
+    }
+
+    function actualizarDiscos(discos, id, propiedad, valor) {
+        if (valor === "") {
+            delete discos[id][propiedad];
+        } else if (propiedad === "canciones") {
+            discos[id][propiedad] = discos[id][propiedad] || []; // Esto en java es equivalente a (abc != undefined? abc: [])
+            discos[id][propiedad].push(valor);
+        } else {
+            discos[id][propiedad]=valor;
+        }
+    }
+
+    // Prueba operador rest
+    function restFunction(...args) {
+        console.log("Número de argumentos en operador rest: "+args.length);
+        return args;
+    }
+
+    // Prueba operador spread
+    function spreadFunction(x,y,z) {
+        return x+y+z;
+    }
+
+    function desestructuracionFlecha() {
+        const estadistica = {
+            max:56.78,
+            desviacionEstandar: 4.34,
+            mediana: 34.54,
+            moda: 23.87,
+            min: -0.75,
+            promedio: 35.85
+        };
+
+        const mitad = ({max,min}) => (max+min)/2;
+
+        console.log(mitad(estadistica));
+    }
+
+   
+</script>
